@@ -5,7 +5,7 @@ GerenciadorVeiculos::GerenciadorVeiculos() {}
 GerenciadorVeiculos::~GerenciadorVeiculos() {}
 
 int GerenciadorVeiculos::adicionarVeiculo(Veiculo veiculo) {
-    veiculosAtivos.push_back(veiculo);
+    veiculosAtivos.push_back(veiculo);//incluir veiculo non vetor veiculosAtivos
     return 1; ///sucesso
 }
 
