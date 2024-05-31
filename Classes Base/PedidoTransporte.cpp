@@ -1,6 +1,3 @@
-#ifndef PEDIDO_TRANSPORTE_CPP
-#define PEDIDO_TRANSPORTE_CPP
-
 #include "PedidoTransporte.h"
 
 PedidoTransporte::PedidoTransporte(Cliente _cliente, std::string _tipoTransporte, std::string _localColeta, std::string _localEntrega, double _pesoCarga, double _volumeCarga, std::string _tipoCarga) :
@@ -83,4 +80,3 @@ double PedidoTransporte::getVolumeCarga() const {
 std::string PedidoTransporte::getTipoCarga() const {
     return tipoCarga;
 }
-#endif
