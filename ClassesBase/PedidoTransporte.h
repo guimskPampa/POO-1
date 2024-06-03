@@ -6,7 +6,7 @@
 #include<iostream>
 
 
-class PedidoTransporte : public Cliente{
+class PedidoTransporte : private Cliente{
 private:
     Cliente cliente;
     std::string tipoTransporte;
@@ -14,7 +14,7 @@ private:
     std::string localEntrega;
     double pesoCarga;
     double volumeCarga;
-    std::string tipoCarga;
+    std::string prioridade;
 
 public:
     //construtor
@@ -28,7 +28,7 @@ public:
     int setLocalEntrega(std::string _localEntrega);
     int setPesoCarga(double _pesoCarga);
     int setVolumeCarga(double _volumeCarga);
-    int setTipoCarga(std::string _tipoCarga);
+    int setPrioridade(std::string _prioridade);
 
     //gets
     Cliente getCliente() const;
@@ -37,7 +37,7 @@ public:
     std::string getLocalEntrega() const;
     double getPesoCarga() const;
     double getVolumeCarga() const;
-    std::string getTipoCarga() const;
+    std::string getPrioridade() const;
 
     //sobrecargas ==
     bool operator==(const PedidoTransporte & comparadoCliente) const;
@@ -46,7 +46,7 @@ public:
     bool operator==(const PedidoTransporte & comparadoLocalEntrega) const;
     bool operator==(const PedidoTransporte & comparadoPesoCarga) const;
     bool operator==(const PedidoTransporte & comparadoVolumeCarga) const;
-    bool operator==(const PedidoTransporte & comparadoTipoCarga) const;
+    bool operator==(const PedidoTransporte & comparadoPrioridade) const;
 
     //sobrecargas <<
     std::ostream& operator<<(std::ostream& out);

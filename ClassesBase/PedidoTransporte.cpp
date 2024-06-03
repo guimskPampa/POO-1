@@ -1,7 +1,7 @@
 #include "PedidoTransporte.h"
 
-PedidoTransporte::PedidoTransporte(Cliente _cliente, std::string _tipoTransporte, std::string _localColeta, std::string _localEntrega, double _pesoCarga, double _volumeCarga, std::string _tipoCarga):
-cliente(_cliente), tipoTransporte(_tipoTransporte), localColeta(_localColeta), localEntrega(_localEntrega), pesoCarga(_pesoCarga), volumeCarga(_volumeCarga), tipoCarga(_tipoCarga),
+PedidoTransporte::PedidoTransporte(Cliente _cliente, std::string _tipoTransporte, std::string _localColeta, std::string _localEntrega, double _pesoCarga, double _volumeCarga, std::string _prioridade):
+cliente(_cliente), tipoTransporte(_tipoTransporte), localColeta(_localColeta), localEntrega(_localEntrega), pesoCarga(_pesoCarga), volumeCarga(_volumeCarga), prioridade(_prioridade),
 Cliente((&_cliente)->getNome(), (&_cliente)->getIdade(), (&_cliente)->getCpf(), (&_cliente)->getEndereco(), (&_cliente)->getTelefone()) {}
     
 PedidoTransporte::~PedidoTransporte() {}
@@ -46,9 +46,9 @@ int PedidoTransporte::setVolumeCarga(double _volumeCarga) {
     return 0;
 }
 
-int PedidoTransporte::setTipoCarga(std::string _tipoCarga) {
-    if (!_tipoCarga.empty()) {
-        tipoCarga = _tipoCarga;
+int PedidoTransporte::setPrioridade (std::string _prioridade) {
+    if (!_prioridade.empty()) {
+        prioridade = _prioridade;
         return 1;
     }
     return 0;
@@ -78,8 +78,8 @@ double PedidoTransporte::getVolumeCarga() const {
     return volumeCarga;
 }
 
-std::string PedidoTransporte::getTipoCarga() const {
-    return tipoCarga;
+std::string PedidoTransporte::getPrioridade() const {
+    return prioridade;
 }
 
 bool PedidoTransporte::operator==(const PedidoTransporte & comparadoCliente) const{
@@ -106,8 +106,8 @@ bool PedidoTransporte::operator==(const PedidoTransporte & comparadoVolumeCarga)
 return this->volumeCarga == comparadoVolumeCarga.volumeCarga;
 }
 
-bool PedidoTransporte::operator==(const PedidoTransporte & comparadoTipoCarga) const{
-return this->tipoCarga == comparadoTipoCarga.tipoCarga;
+bool PedidoTransporte::operator==(const PedidoTransporte & comparadoPrioridade) const{
+return this->prioridade== comparadoPrioridade.prioridade;
 }
 
 std::ostream& operator<<(std::ostream& out, PedidoTransporte* pedidoTransporte){
@@ -117,6 +117,6 @@ std::ostream& operator<<(std::ostream& out, PedidoTransporte* pedidoTransporte){
     << "\nLocalEntrega: " << pedidoTransporte->getLocalEntrega()
     << "\nPesoCarga " << pedidoTransporte->getPesoCarga()
     << "\nVolumeCarga: " << pedidoTransporte->getVolumeCarga()
-    << "\nTipoCarga: " << pedidoTransporte->getTipoCarga();
+    << "\nTipoCarga: " << pedidoTransporte->getPrioridade();
     return out;
 }

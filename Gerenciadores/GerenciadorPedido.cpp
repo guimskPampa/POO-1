@@ -13,7 +13,7 @@ double GerenciadorPedido::distanciaDoisPontos(std::string localizacao1, std::str
     }
     
     while (ss >> numero) {
-        if (count==0) longitude2 = getline(ss, longitude2, ',');
+        if (count==0) longitude2 = stoi(strtok(longitude2,','));
         else if (count==1) longitude2 = getline(ss, longitude2, ',');
         count++;
     }
@@ -27,4 +27,8 @@ double GerenciadorPedido::distanciaDoisPontos(std::string localizacao1, std::str
     double distance = 60 * 1.1515 * (180/M_PI) * acos(sin(angulo1) * sin(angulo2) +  cos(angulo1) * cos(angulo2) * cos(angulo3));
    
     return round(distance * 1.609344);
+}
+
+PedidoTransporte* GerenciadorPedido::setVeiculos(PedidoTransporte* pedido, Veiculo* listaVeiculos){
+
 }

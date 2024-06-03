@@ -6,11 +6,14 @@
 #include <math.h>
 #include <fstream>
 #include <sstream>
+#include <cstring>
+#include "../ClassesBase/PedidoTransporte.h" 
+#include "../ClassesBase/Veiculo.h" 
 
 
 class GerenciadorPedido {
 
-    void setVeiculos();
+    PedidoTransporte* setVeiculos(PedidoTransporte* pedido, Veiculo* listaVeiculos);
     double distanciaDoisPontos(std::string localizacao1, std::string localizacao2);
     
 };
