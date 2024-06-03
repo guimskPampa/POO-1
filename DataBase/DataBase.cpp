@@ -34,10 +34,8 @@ std::vector<std::string>  getData (){
         // read every column data of a row and
         // store it in a string variable, 'words'
         while (getline(s, words, ',')) {
-  
-            // add all the column data
+            if(!getline(s, words, '\',\'')) colunas.push_back(words); // add all the column data
             // of a row to a vector
-            colunas.push_back(words);
         }
         matrizDados.push_back(colunas[size(colunas)]);
     }
