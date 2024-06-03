@@ -1,7 +1,6 @@
 #ifndef GERENCIADORVEICULOS_H
 #define GERENCIADORVEICULOS_H
 
-#include "Veiculo.h"
 #include <vector>
 #include <string>
 
