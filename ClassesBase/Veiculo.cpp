@@ -19,6 +19,14 @@ int Veiculo::setAnoFabricacao(int _anoFabricacao) {
     return 0; //falha
 }
 
+int Veiculo::setAnoFabricacao(std::string  _anoFabricacao) {
+    if (stoi(_anoFabricacao) > 0) {
+        anoFabricacao = stoi(_anoFabricacao);
+        return 1; //sucesso
+    }
+    return 0; //falha
+}
+
 int Veiculo::setChassi(std::string _chassi) {
     if (!_chassi.empty()) {
         chassi = _chassi;
