@@ -62,3 +62,32 @@ double Veiculo::getCapacidadeCarga() const {
 std::string Veiculo::getLocalizacao() const {
     return localizacao;
 }
+
+bool Veiculo::operator==(const Veiculo & comparadoCapacidadeCarga) const{
+return this->capacidadeCarga == comparadoCapacidadeCarga.capacidadeCarga;
+}
+
+bool Veiculo::operator==(const Veiculo & comparadoLocalizacao) const{
+return this->localizacao== comparadoLocalizacao.localizacao;
+}
+
+bool Veiculo::operator==(const Veiculo & comparadoModelo) const{
+return this->modelo == comparadoModelo.modelo;
+}
+
+bool Veiculo::operator==(const Veiculo & comparadoAnoFabricacao) const{
+return this->anoFabricacao == comparadoAnoFabricacao.anoFabricacao;
+}
+
+bool Veiculo::operator==(const Veiculo & comparadoChassi) const{
+return this->chassi == comparadoChassi.chassi;
+}
+
+std::ostream& operator<<(std::ostream& out, Veiculo* veiculo){
+    out << "\nCapacidadeCarga: " << veiculo->getCapacidadeCarga()
+    << "\nLocalizacao: "<< veiculo->getLocalizacao()
+    << "\nModelo: " << veiculo->getModelo()
+    << "\nAnoFabricacao: " << veiculo->getAnoFabricacao()
+    << "\nChassi: " << veiculo->getChassi();
+    return out;
+}

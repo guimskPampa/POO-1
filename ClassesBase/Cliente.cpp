@@ -63,3 +63,32 @@ std::string Cliente::getEndereco() const {
 std::string Cliente::getTelefone() const {
     return telefone;
 }
+
+bool Cliente::operator==(const Cliente & comparadoNome) const{
+return this->nome == comparadoNome.nome;
+}
+
+bool Cliente::operator==(const Cliente & comparadoIdade) const{
+return this->idade == comparadoIdade.idade;
+}
+
+bool Cliente::operator==(const Cliente & comparadoCpf) const{
+return this->cpf == comparadoCpf.cpf;
+}
+
+bool Cliente::operator==(const Cliente & comparadoEndereco) const{
+return this->endereco == comparadoEndereco.endereco;
+}
+
+bool Cliente::operator==(const Cliente & comparadoTelefone) const{
+return this->telefone == comparadoTelefone.telefone;
+}
+
+std::ostream& operator<<(std::ostream& out, Cliente* cliente){
+    out << "\nNome: "<< cliente->getNome()
+    << "\nIdade: " << cliente->getIdade()
+    << "\nCPF: " << cliente->getCpf()
+    << "\nEndereco: " << cliente->getEndereco()
+    << "\nTelefone: " << cliente->getTelefone();
+    return out;
+}

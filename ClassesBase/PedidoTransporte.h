@@ -3,8 +3,10 @@
 
 #include "Cliente.h"
 #include <string>
+#include<iostream>
 
-class PedidoTransporte {
+
+class PedidoTransporte : public Cliente{
 private:
     Cliente cliente;
     std::string tipoTransporte;
@@ -15,9 +17,12 @@ private:
     std::string tipoCarga;
 
 public:
+    //construtor
     PedidoTransporte(Cliente _cliente, std::string _tipoTransporte, std::string _localColeta, std::string _localEntrega, double _pesoCarga, double _volumeCarga, std::string _tipoCarga);
+    //destrutor
     ~PedidoTransporte();
 
+    //sets
     int setTipoTransporte(std::string _tipoTransporte);
     int setLocalColeta(std::string _localColeta);
     int setLocalEntrega(std::string _localEntrega);
@@ -25,6 +30,7 @@ public:
     int setVolumeCarga(double _volumeCarga);
     int setTipoCarga(std::string _tipoCarga);
 
+    //gets
     Cliente getCliente() const;
     std::string getTipoTransporte() const;
     std::string getLocalColeta() const;
@@ -32,6 +38,20 @@ public:
     double getPesoCarga() const;
     double getVolumeCarga() const;
     std::string getTipoCarga() const;
+
+    //sobrecargas ==
+    bool operator==(const PedidoTransporte & comparadoCliente) const;
+    bool operator==(const PedidoTransporte & comparadoTipoTransporte) const;
+    bool operator==(const PedidoTransporte & comparadoLocalColeta) const;
+    bool operator==(const PedidoTransporte & comparadoLocalEntrega) const;
+    bool operator==(const PedidoTransporte & comparadoPesoCarga) const;
+    bool operator==(const PedidoTransporte & comparadoVolumeCarga) const;
+    bool operator==(const PedidoTransporte & comparadoTipoCarga) const;
+
+    //sobrecargas <<
+    std::ostream& operator<<(std::ostream& out);
+
+
 };
 
 #endif // PEDIDOTRANSPORTE_H

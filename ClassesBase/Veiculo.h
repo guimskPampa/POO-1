@@ -2,6 +2,8 @@
 #define VEICULO_H
 
 #include <string>
+#include<iostream>
+
 
 class Veiculo {
 private:
@@ -13,21 +15,35 @@ private:
     std::string chassi;
 
 public:
-
+    //construtor
     Veiculo(std::string _modelo, int _anoFabricacao, std::string _chassi, double _capacidadeCarga, std::string _localizacao);
+    //destrutor
     ~Veiculo();
 
+    //sets
     virtual int setModelo(std::string _modelo);
     virtual int setAnoFabricacao(int _anoFabricacao);
     virtual int setChassi(std::string _chassi);
     int setCapacidadeCarga(double _capacidadeCarga);
     int setLocalizacao(std::string _localizacao);
     
+    //gets
     virtual std::string getModelo() const;
     virtual int getAnoFabricacao() const;
     virtual std::string getChassi() const;
     double getCapacidadeCarga() const;
     std::string getLocalizacao() const;
+
+    //sobrecargas ==
+    bool operator==(const Veiculo & comparadoCapacidadeCarga) const;
+    bool operator==(const Veiculo & comparadoLocalizacao) const;
+    bool operator==(const Veiculo & comparadoModelo) const;
+    bool operator==(const Veiculo & comparadoAnoFabricacao) const;
+    bool operator==(const Veiculo & comparadoChassi) const;
+    
+    //sobrecargas <<
+    std::ostream& operator<<(std::ostream& out);
+
 };
 
 #endif // VEICULO_H
