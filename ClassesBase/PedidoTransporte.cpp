@@ -2,7 +2,7 @@
 
 PedidoTransporte::PedidoTransporte(Cliente _cliente, std::string _tipoTransporte, std::string _localColeta, std::string _localEntrega, double _pesoCarga, double _volumeCarga, std::string _prioridade):
 cliente(_cliente), tipoTransporte(_tipoTransporte), localColeta(_localColeta), localEntrega(_localEntrega), pesoCarga(_pesoCarga), volumeCarga(_volumeCarga), prioridade(_prioridade),
-Cliente((&_cliente)->getNome(), (&_cliente)->getIdade(), (&_cliente)->getCpf(), (&_cliente)->getEndereco(), (&_cliente)->getTelefone()) {}
+Cliente((&_cliente)->getNome(), (&_cliente)->getIdade(), (&_cliente)->getCpf(), (&_cliente)->getEndereco(), (&_cliente)->getTelefone(), (&_cliente)->getEmail()) {}
     
 PedidoTransporte::~PedidoTransporte() {}
 

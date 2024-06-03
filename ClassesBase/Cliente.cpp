@@ -2,8 +2,8 @@
 
 ///métodos da classe Cliente
 
-Cliente::Cliente(std::string _nome, std::string _idade, std::string _cpf, std::string _endereco, std::string _telefone) :
-    nome(_nome), idade(_idade), cpf(_cpf), endereco(_endereco), telefone(_telefone) {}
+Cliente::Cliente(std::string _nome, std::string _idade, std::string _cpf, std::string _endereco, std::string _telefone, std::string _email) :
+    nome(_nome), idade(_idade), cpf(_cpf), endereco(_endereco), telefone(_telefone), email(_email) {}
 
 Cliente::~Cliente() {}
 
@@ -16,8 +16,11 @@ int Cliente::setNome(std::string _nome) {
 }
 
 int Cliente::setIdade(std::string _idade) {
-    idade = _idade;
-    return 1;
+    if (!_idade.empty()) {
+        idade = _idade;
+        return 1;
+    }
+    return 0;
 }
 
 int Cliente::setCpf(std::string _cpf) {
@@ -44,6 +47,14 @@ int Cliente::setTelefone(std::string _telefone) {
     return 0;
 }
 
+int Cliente::setEmail(std::string _email) {
+    if (!_email.empty()) {
+        email = _email;
+        return 1;
+    }
+    return 0;
+}
+
 std::string Cliente::getNome() const {
     return nome;
 }
@@ -64,6 +75,10 @@ std::string Cliente::getTelefone() const {
     return telefone;
 }
 
+std::string Cliente::getEmail() const {
+    return email;
+}
+
 bool Cliente::operator==(const Cliente & comparadoNome) const{
 return this->nome == comparadoNome.nome;
 }
@@ -82,6 +97,10 @@ return this->endereco == comparadoEndereco.endereco;
 
 bool Cliente::operator==(const Cliente & comparadoTelefone) const{
 return this->telefone == comparadoTelefone.telefone;
+}
+
+bool Cliente::operator==(const Cliente & comparadoEmail) const{
+return this->email == comparadoEmail.email;
 }
 
 std::ostream& operator<<(std::ostream& out, Cliente* cliente){
